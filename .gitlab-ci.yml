@@ -1,0 +1,27 @@
+stages:
+  - test11
+  - test2
+  - deploy
+
+test11_stage:
+  stage: test11
+
+  script:
+    - echo "Hello worddcdsc"
+
+deployment_stage:
+  stage: deploy
+  script:
+   # - sudo mkdir /home/ubuntu/testmycicdsxs
+    #- cp shellscriptfile.sh /home/ubuntu/testmycicd/shellscriptfile.sh
+    #- pip install virtualenv
+   # - sh ./shellscriptfile.sh
+    - sudo rm -r /home/ubuntu/vinodkumar1/testlive
+    - sudo cp -r  testlive /home/ubuntu/vinodkumar1/testlive
+    - cd /home/ubuntu
+    - source venv/bin/activate
+    - sudo service supervisor restart
+  #  - cd /home/ubuntu/vinodkumar1/testlive
+   # - gunicorn testlive.wsgi:application --bind 0.0.0.0:8006
+    
+  #  - sudo cp requirment.txt /home/ubuntu/vinodkumar1/requirment.txt
